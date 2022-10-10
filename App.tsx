@@ -50,7 +50,7 @@ function Principal({navigation} : any) {
       <Button 
         title="NAVEGACION"
         onPress={() => {
-          navigation.navigate("EjemploFuncion", {ejemploArgs: "HOLA A TODOS!"});
+          navigation.navigate("EjemploFuncion", {dato: "HOLA A TODOS!"});
         }}
       />
       <StatusBar style="auto" />
@@ -77,11 +77,11 @@ export default function App() {
 }
 
 // ejemplo de componente definido en función
-function EjemploFuncion({navigation, route} : any) {
-  console.log(navigation);
-  console.log(route.params);
+function EjemploFuncion({ navigation, route }: any) {
+  
+
   return (
-    <Text>Ejemplo de componente en funcion: </Text>
+    <Text>Ejemplo de componente en funcion: {route?.params.dato}</Text>
   );
 }
 
