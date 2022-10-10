@@ -5,6 +5,8 @@ import Perrito from './classes/PerritoFuncion';
 // si importamos default no necesitamos llaves
 // podemos cambiarle de nombre si queremos
 import Chucho, { PerritoRow } from './classes/PerritoFuncion';
+import EjemploRequest from './classes/EjemploRequest';
+import FunctionRequest from './classes/FuncionRequest';
 
 // component
 // - instanciable 
@@ -30,11 +32,7 @@ export default function App() {
       <Chucho nombre="Firulais" edad="3" />
       <FlatList 
         data={[
-          {nombre: "chucho1", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"},
-          {nombre: "chucho2", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"},
-          {nombre: "chucho3", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"},
-          {nombre: "chucho4", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"},
-          {nombre: "chucho5", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"},
+          {nombre: "chucho1", uri: "http://4.bp.blogspot.com/-7R8yr5qhV8Q/UPFlZvJCB4I/AAAAAAAAI7s/f-CYwM5F6k4/s1600/puppy.jpg"}
         ]}
         renderItem={ ({item}) => {
           return (
@@ -42,6 +40,8 @@ export default function App() {
           );
         }}
       />
+      <EjemploRequest />
+      <FunctionRequest />
       <StatusBar style="auto" />
     </View>
   );
