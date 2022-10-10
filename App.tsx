@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { EjemploClase } from './classes/EjemploClase'; 
 import Perrito from './classes/PerritoFuncion';
 // si importamos default no necesitamos llaves
@@ -7,6 +7,11 @@ import Perrito from './classes/PerritoFuncion';
 import Chucho, { PerritoRow } from './classes/PerritoFuncion';
 import EjemploRequest from './classes/EjemploRequest';
 import FunctionRequest from './classes/FuncionRequest';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// ESTO SE VA A UTLIZAR PARA LA NAVEGACION
+const Stack = createNativeStackNavigator();
 
 // component
 // - instanciable 
@@ -20,7 +25,7 @@ import FunctionRequest from './classes/FuncionRequest';
 // 1 - por medio de función
 // 2 - por medio de una clase 
 
-export default function App() {
+function Principal({navigation} : any) {
 
   // que es eso?!
   // JSX - javascript xml 
@@ -42,15 +47,41 @@ export default function App() {
       />
       <EjemploRequest />
       <FunctionRequest />
+      <Button 
+        title="NAVEGACION"
+        onPress={() => {
+          navigation.navigate("EjemploFuncion", {ejemploArgs: "HOLA A TODOS!"});
+        }}
+      />
       <StatusBar style="auto" />
     </View>
   );
 }
 
+export default function App() {
+
+  return( 
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Principal"
+          component={Principal}
+        />
+        <Stack.Screen 
+          name="EjemploFuncion"
+          component={EjemploFuncion}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
 // ejemplo de componente definido en función
-function EjemploFuncion() {
+function EjemploFuncion({navigation, route} : any) {
+  console.log(navigation);
+  console.log(route.params);
   return (
-    <Text>Ejemplo de componente en funcion</Text>
+    <Text>Ejemplo de componente en funcion: </Text>
   );
 }
 
